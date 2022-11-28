@@ -1,0 +1,491 @@
+var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection.js":function module(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                 //
+// imports/api/Collections/PatientCollection.js                                                    //
+//                                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                   //
+!function (module1) {
+  module1.export({
+    PatientCollection: () => PatientCollection
+  });
+  let Mongo;
+  module1.link("meteor/mongo", {
+    Mongo(v) {
+      Mongo = v;
+    }
+
+  }, 0);
+
+  ___INIT_METEOR_FAST_REFRESH(module);
+
+  const PatientCollection = new Mongo.Collection('Patients2');
+}.call(this, module);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}}},"ui":{"components":{"Footer.jsx":function module(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                 //
+// imports/ui/components/Footer.jsx                                                                //
+//                                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                   //
+!function (module1) {
+  let React;
+  module1.link("react", {
+    default(v) {
+      React = v;
+    }
+
+  }, 0);
+
+  ___INIT_METEOR_FAST_REFRESH(module);
+
+  const Footer = () => {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "Footer"
+    }, /*#__PURE__*/React.createElement("h1", null, "Esto es Footer"));
+  };
+
+  _c = Footer;
+  module1.exportDefault(Footer);
+
+  var _c;
+
+  $RefreshReg$(_c, "Footer");
+}.call(this, module);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"NavBar.jsx":function module(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                 //
+// imports/ui/components/NavBar.jsx                                                                //
+//                                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                   //
+!function (module1) {
+  let React;
+  module1.link("react", {
+    default(v) {
+      React = v;
+    }
+
+  }, 0);
+
+  ___INIT_METEOR_FAST_REFRESH(module);
+
+  const NavBar = () => {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "NavBar"
+    }, /*#__PURE__*/React.createElement("h1", null, "Esto es El NavBar"));
+  };
+
+  _c = NavBar;
+  module1.exportDefault(NavBar);
+
+  var _c;
+
+  $RefreshReg$(_c, "NavBar");
+}.call(this, module);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"Patient.jsx":function module(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                 //
+// imports/ui/components/Patient.jsx                                                               //
+//                                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                   //
+!function (module1) {
+  let React;
+  module1.link("react", {
+    default(v) {
+      React = v;
+    }
+
+  }, 0);
+  let patient;
+  module1.link("../../api/Collections/PatientCollection", {
+    default(v) {
+      patient = v;
+    }
+
+  }, 1);
+
+  ___INIT_METEOR_FAST_REFRESH(module);
+
+  const Patient = _ref => {
+    let {
+      patient,
+      onDeleteClick
+    } = _ref;
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre y Apellido"), /*#__PURE__*/React.createElement("th", null, "Rut"), /*#__PURE__*/React.createElement("th", null, "zipCode"), /*#__PURE__*/React.createElement("th", null, "County"), /*#__PURE__*/React.createElement("th", null, "state")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, patient.name, "-", patient.FirstLastName, "-", patient.SecondLastName), /*#__PURE__*/React.createElement("td", null, patient.Rut), /*#__PURE__*/React.createElement("td", null, patient.zipCode), /*#__PURE__*/React.createElement("td", null, patient.state), /*#__PURE__*/React.createElement("td", null, patient.county), /*#__PURE__*/React.createElement("button", {
+      onClick: () => onDeleteClick(patient),
+      value: "eliminar"
+    }, "ELIMINAR")));
+  };
+
+  _c = Patient;
+  module1.exportDefault(Patient);
+
+  var _c;
+
+  $RefreshReg$(_c, "Patient");
+}.call(this, module);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"PatientForm.jsx":function module(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                 //
+// imports/ui/components/PatientForm.jsx                                                           //
+//                                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                   //
+!function (module1) {
+  let _extends;
+
+  module1.link("@babel/runtime/helpers/extends", {
+    default(v) {
+      _extends = v;
+    }
+
+  }, 0);
+  let React, useState;
+  module1.link("react", {
+    default(v) {
+      React = v;
+    },
+
+    useState(v) {
+      useState = v;
+    }
+
+  }, 0);
+  let PatientCollection;
+  module1.link("../../api/Collections/PatientCollection", {
+    PatientCollection(v) {
+      PatientCollection = v;
+    }
+
+  }, 1);
+  let useForm;
+  module1.link("react-hook-form", {
+    useForm(v) {
+      useForm = v;
+    }
+
+  }, 2);
+
+  ___INIT_METEOR_FAST_REFRESH(module);
+
+  var _s = $RefreshSig$();
+
+  const PatientForm = () => {
+    _s(); //SetState and Const for parameters
+
+
+    const [name, setName] = useState("");
+    const [FirstLastName, setFirstLastName] = useState("");
+    const [SecondLastName, setSecondLastName] = useState("");
+    const [Rut, setRut] = useState("");
+    const [zipCode, setZipCode] = useState("");
+    const [state, setState] = useState("");
+    const [county, setCounty] = useState("");
+    const {
+      register,
+      handleSubmit,
+      formState: {
+        errors
+      }
+    } = useForm();
+
+    const submit = async data => {
+      await data.preventDefault;
+      if (!Rut) return;
+      PatientCollection.insert({
+        name,
+        FirstLastName,
+        SecondLastName,
+        Rut,
+        zipCode,
+        state,
+        county
+      });
+      setName("");
+      setFirstLastName("");
+      setSecondLastName("");
+      setRut("");
+      setZipCode("");
+      setState("");
+      setCounty("");
+    };
+
+    return /*#__PURE__*/React.createElement("div", {
+      className: "md:container px-10 py-4 bg-slate-300"
+    }, /*#__PURE__*/React.createElement("form", {
+      onSubmit: handleSubmit(submit)
+    }, /*#__PURE__*/React.createElement("label", {
+      htmlFor: "name",
+      className: "block text-sm font-medium text-gray-700"
+    }, "First name "), /*#__PURE__*/React.createElement("input", _extends({
+      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+      autoComplete: "name",
+      type: "text",
+      placeholder: "Type to Name",
+      value: name
+    }, register('name', {
+      required: true
+    }), {
+      onChange: e => setName(e.target.value)
+    })), errors.name && /*#__PURE__*/React.createElement("p", null, "Se necesita Un Nombre"), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "FirstLastName",
+      className: "block text-sm font-medium text-gray-700"
+    }, "Apellido Materno "), /*#__PURE__*/React.createElement("input", _extends({
+      className: "mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+      type: "text",
+      placeholder: "Type firstLastName",
+      value: FirstLastName
+    }, register('FirstLastName', {
+      required: true
+    }), {
+      onChange: e => setFirstLastName(e.target.value)
+    })), errors.FirstLastName && /*#__PURE__*/React.createElement("p", null, "Necesitas Un Apellido Paterno"), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "SecondLastName",
+      className: "block text-sm font-medium text-gray-700"
+    }, "Apellido Materno "), /*#__PURE__*/React.createElement("input", {
+      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+      type: "text",
+      placeholder: "Type Second Last Name",
+      value: SecondLastName,
+      onChange: e => setSecondLastName(e.target.value)
+    }), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "Rut",
+      className: "block text-sm font-medium text-gray-700"
+    }, "Rut "), /*#__PURE__*/React.createElement("input", _extends({
+      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+      type: "text",
+      placeholder: "Type to rut",
+      value: Rut
+    }, register('Rut', {
+      required: true
+    }), {
+      onChange: e => setRut(e.target.value)
+    })), errors.Rut && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Rut"), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "zipCode",
+      className: "block text-sm font-medium text-gray-700"
+    }, "Codigo Postal "), /*#__PURE__*/React.createElement("input", _extends({
+      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+      type: "text",
+      placeholder: "Type to zip code",
+      value: zipCode
+    }, register('zipCode', {
+      required: true
+    }), {
+      onChange: e => setZipCode(e.target.value)
+    })), errors.zipCode && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Codigo Postal"), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "state",
+      className: "block text-sm font-medium text-gray-700"
+    }, "Region "), /*#__PURE__*/React.createElement("input", _extends({
+      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+      type: "text",
+      placeholder: "Select Your State",
+      value: state
+    }, register('state', {
+      required: true
+    }), {
+      onChange: e => setState(e.target.value)
+    })), errors.state && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Region"), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "county",
+      className: "block text-sm font-medium text-gray-700"
+    }, "Comuna "), /*#__PURE__*/React.createElement("input", _extends({
+      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+      type: "text",
+      placerholder: "Select Your County",
+      value: county
+    }, register('county', {
+      required: true
+    }), {
+      onChange: e => setCounty(e.target.value)
+    })), errors.county && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Comuna"), /*#__PURE__*/React.createElement("button", {
+      type: "submit",
+      className: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    }, "enviar")));
+  };
+
+  _s(PatientForm, "YESj40tedrML8FoRZK2Nr5RbkwE=", false, function () {
+    return [useForm];
+  });
+
+  _c = PatientForm;
+  module1.exportDefault(PatientForm);
+
+  var _c;
+
+  $RefreshReg$(_c, "PatientForm");
+}.call(this, module);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}},"App.jsx":function module(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                 //
+// imports/ui/App.jsx                                                                              //
+//                                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                   //
+!function (module1) {
+  let React;
+  module1.link("react", {
+    default(v) {
+      React = v;
+    }
+
+  }, 0);
+  let PatientCollection;
+  module1.link("../api/Collections/PatientCollection", {
+    PatientCollection(v) {
+      PatientCollection = v;
+    }
+
+  }, 1);
+  let Patient;
+  module1.link("../ui/components/Patient", {
+    default(v) {
+      Patient = v;
+    }
+
+  }, 2);
+  let PatientForm;
+  module1.link("./components/PatientForm", {
+    default(v) {
+      PatientForm = v;
+    }
+
+  }, 3);
+  let useTracker;
+  module1.link("meteor/react-meteor-data", {
+    useTracker(v) {
+      useTracker = v;
+    }
+
+  }, 4);
+  let NavBar;
+  module1.link("./components/NavBar", {
+    default(v) {
+      NavBar = v;
+    }
+
+  }, 5);
+  let Footer;
+  module1.link("./components/Footer", {
+    default(v) {
+      Footer = v;
+    }
+
+  }, 6);
+
+  ___INIT_METEOR_FAST_REFRESH(module);
+
+  var _s = $RefreshSig$();
+
+  const deletePatient = _ref => {
+    let {
+      _id
+    } = _ref;
+    return PatientCollection.remove(_id);
+  };
+
+  const App = () => {
+    _s();
+
+    const patients = useTracker(() => PatientCollection.find({}, {
+      sort: {
+        createdAt: -1
+      }
+    }).fetch());
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(NavBar, null), /*#__PURE__*/React.createElement("h1", {
+      className: "text-3xl font-bold underline"
+    }, "prueba registro Pacientes"), /*#__PURE__*/React.createElement(PatientForm, null), patients.map(patient => /*#__PURE__*/React.createElement(Patient, {
+      key: patient._id,
+      patient: patient,
+      onDeleteClick: deletePatient
+    })), /*#__PURE__*/React.createElement(Footer, null));
+  };
+
+  _s(App, "tQirp9HU8dzIOPBFuhisnzHbbnM=", false, function () {
+    return [useTracker];
+  });
+
+  _c = App;
+  module1.exportDefault(App);
+
+  var _c;
+
+  $RefreshReg$(_c, "App");
+}.call(this, module);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}}},"client":{"main.jsx":function module(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                 //
+// client/main.jsx                                                                                 //
+//                                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                   //
+!function (module1) {
+  let React;
+  module1.link("react", {
+    default(v) {
+      React = v;
+    }
+
+  }, 0);
+  let Meteor;
+  module1.link("meteor/meteor", {
+    Meteor(v) {
+      Meteor = v;
+    }
+
+  }, 1);
+  let render;
+  module1.link("react-dom", {
+    render(v) {
+      render = v;
+    }
+
+  }, 2);
+  let App;
+  module1.link("/imports/ui/App", {
+    default(v) {
+      App = v;
+    }
+
+  }, 3);
+
+  ___INIT_METEOR_FAST_REFRESH(module);
+
+  Meteor.startup(() => {
+    render( /*#__PURE__*/React.createElement(App, null), document.getElementById('react-target'));
+  });
+}.call(this, module);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}}},{
+  "extensions": [
+    ".js",
+    ".json",
+    ".html",
+    ".ts",
+    ".css",
+    ".mjs",
+    ".jsx"
+  ]
+});
+
+var exports = require("/client/main.jsx");
