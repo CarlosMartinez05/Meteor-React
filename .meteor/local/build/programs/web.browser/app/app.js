@@ -1,11 +1,11 @@
 var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection.js":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                 //
-// imports/api/Collections/PatientCollection.js                                                    //
-//                                                                                                 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                   //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                  //
+// imports/api/Collections/PatientCollection.js                                                     //
+//                                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                    //
 !function (module1) {
   module1.export({
     PatientCollection: () => PatientCollection
@@ -22,16 +22,16 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
 
   const PatientCollection = new Mongo.Collection('Patients2');
 }.call(this, module);
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }}},"ui":{"components":{"Footer.jsx":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                 //
-// imports/ui/components/Footer.jsx                                                                //
-//                                                                                                 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                   //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                  //
+// imports/ui/components/Footer.jsx                                                                 //
+//                                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                    //
 !function (module1) {
   let React;
   module1.link("react", {
@@ -56,16 +56,16 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
 
   $RefreshReg$(_c, "Footer");
 }.call(this, module);
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 },"NavBar.jsx":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                 //
-// imports/ui/components/NavBar.jsx                                                                //
-//                                                                                                 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                   //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                  //
+// imports/ui/components/NavBar.jsx                                                                 //
+//                                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                    //
 !function (module1) {
   let React;
   module1.link("react", {
@@ -90,16 +90,16 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
 
   $RefreshReg$(_c, "NavBar");
 }.call(this, module);
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 },"Patient.jsx":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                 //
-// imports/ui/components/Patient.jsx                                                               //
-//                                                                                                 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                   //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                  //
+// imports/ui/components/Patient.jsx                                                                //
+//                                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                    //
 !function (module1) {
   let React;
   module1.link("react", {
@@ -136,16 +136,16 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
 
   $RefreshReg$(_c, "Patient");
 }.call(this, module);
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 },"PatientForm.jsx":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                 //
-// imports/ui/components/PatientForm.jsx                                                           //
-//                                                                                                 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                   //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                  //
+// imports/ui/components/PatientForm.jsx                                                            //
+//                                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                    //
 !function (module1) {
   let _extends;
 
@@ -225,95 +225,78 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
       setCounty("");
     };
 
-    return /*#__PURE__*/React.createElement("div", {
-      className: "md:container px-10 py-4 bg-slate-300"
-    }, /*#__PURE__*/React.createElement("form", {
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("form", {
       onSubmit: handleSubmit(submit)
     }, /*#__PURE__*/React.createElement("label", {
-      htmlFor: "name",
-      className: "block text-sm font-medium text-gray-700"
+      htmlFor: "name"
     }, "First name "), /*#__PURE__*/React.createElement("input", _extends({
-      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
       autoComplete: "name",
       type: "text",
-      placeholder: "Type to Name",
+      placeholder: "Nombre",
       value: name
     }, register('name', {
       required: true
     }), {
       onChange: e => setName(e.target.value)
     })), errors.name && /*#__PURE__*/React.createElement("p", null, "Se necesita Un Nombre"), /*#__PURE__*/React.createElement("label", {
-      htmlFor: "FirstLastName",
-      className: "block text-sm font-medium text-gray-700"
+      htmlFor: "FirstLastName"
     }, "Apellido Materno "), /*#__PURE__*/React.createElement("input", _extends({
-      className: "mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
       type: "text",
-      placeholder: "Type firstLastName",
+      placeholder: "Apellido Paterno",
       value: FirstLastName
     }, register('FirstLastName', {
       required: true
     }), {
       onChange: e => setFirstLastName(e.target.value)
     })), errors.FirstLastName && /*#__PURE__*/React.createElement("p", null, "Necesitas Un Apellido Paterno"), /*#__PURE__*/React.createElement("label", {
-      htmlFor: "SecondLastName",
-      className: "block text-sm font-medium text-gray-700"
+      htmlFor: "SecondLastName"
     }, "Apellido Materno "), /*#__PURE__*/React.createElement("input", {
-      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
       type: "text",
-      placeholder: "Type Second Last Name",
+      placeholder: "Apellido Materno",
       value: SecondLastName,
       onChange: e => setSecondLastName(e.target.value)
     }), /*#__PURE__*/React.createElement("label", {
-      htmlFor: "Rut",
-      className: "block text-sm font-medium text-gray-700"
+      htmlFor: "Rut"
     }, "Rut "), /*#__PURE__*/React.createElement("input", _extends({
-      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
       type: "text",
-      placeholder: "Type to rut",
+      placeholder: "Rut",
       value: Rut
     }, register('Rut', {
       required: true
     }), {
       onChange: e => setRut(e.target.value)
     })), errors.Rut && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Rut"), /*#__PURE__*/React.createElement("label", {
-      htmlFor: "zipCode",
-      className: "block text-sm font-medium text-gray-700"
+      htmlFor: "zipCode"
     }, "Codigo Postal "), /*#__PURE__*/React.createElement("input", _extends({
-      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
       type: "text",
-      placeholder: "Type to zip code",
+      placeholder: "Codigo Postal",
       value: zipCode
     }, register('zipCode', {
       required: true
     }), {
       onChange: e => setZipCode(e.target.value)
     })), errors.zipCode && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Codigo Postal"), /*#__PURE__*/React.createElement("label", {
-      htmlFor: "state",
-      className: "block text-sm font-medium text-gray-700"
+      htmlFor: "state"
     }, "Region "), /*#__PURE__*/React.createElement("input", _extends({
-      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
       type: "text",
-      placeholder: "Select Your State",
+      placeholder: "Region",
       value: state
     }, register('state', {
       required: true
     }), {
       onChange: e => setState(e.target.value)
     })), errors.state && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Region"), /*#__PURE__*/React.createElement("label", {
-      htmlFor: "county",
-      className: "block text-sm font-medium text-gray-700"
-    }, "Comuna "), /*#__PURE__*/React.createElement("input", _extends({
-      className: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+      htmlFor: "county"
+    }, "Comuna"), /*#__PURE__*/React.createElement("input", _extends({
       type: "text",
-      placerholder: "Select Your County",
+      placerholder: "Comuna",
       value: county
     }, register('county', {
       required: true
     }), {
       onChange: e => setCounty(e.target.value)
     })), errors.county && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Comuna"), /*#__PURE__*/React.createElement("button", {
-      type: "submit",
-      className: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      type: "submit"
     }, "enviar")));
   };
 
@@ -328,16 +311,16 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
 
   $RefreshReg$(_c, "PatientForm");
 }.call(this, module);
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }},"App.jsx":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                 //
-// imports/ui/App.jsx                                                                              //
-//                                                                                                 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                   //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                  //
+// imports/ui/App.jsx                                                                               //
+//                                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                    //
 !function (module1) {
   let React;
   module1.link("react", {
@@ -428,16 +411,16 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
 
   $RefreshReg$(_c, "App");
 }.call(this, module);
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }}},"client":{"main.jsx":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                 //
-// client/main.jsx                                                                                 //
-//                                                                                                 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                   //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                  //
+// client/main.jsx                                                                                  //
+//                                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                    //
 !function (module1) {
   let React;
   module1.link("react", {
@@ -474,7 +457,7 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
     render( /*#__PURE__*/React.createElement(App, null), document.getElementById('react-target'));
   });
 }.call(this, module);
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }}},{
   "extensions": [

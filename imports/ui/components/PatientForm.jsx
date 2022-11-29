@@ -40,79 +40,71 @@ const PatientForm = () => {
   };
 
   return (
-    <div className='md:container px-10 py-4 bg-slate-300'>
+    <div>
       <form onSubmit={handleSubmit(submit)}>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">First name </label>
+        <label htmlFor="name">First name </label>
         <input
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           autoComplete="name"
           type="text"
-          placeholder="Type to Name"
+          placeholder="Nombre"
           value={name}
           {...register('name', { required: true })}
           onChange={(e) => setName(e.target.value)}
         />
         {errors.name && <p>Se necesita Un Nombre</p>}
-        <label htmlFor="FirstLastName" className="block text-sm font-medium text-gray-700">Apellido Materno </label>
+        <label htmlFor="FirstLastName">Apellido Materno </label>
         <input
-          className="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           type="text"
-          placeholder="Type firstLastName"
+          placeholder="Apellido Paterno"
           value={FirstLastName}
           {...register('FirstLastName', { required: true })}
           onChange={(e) => setFirstLastName(e.target.value)}
         />
         {errors.FirstLastName && <p>Necesitas Un Apellido Paterno</p>}
-        <label htmlFor="SecondLastName" className="block text-sm font-medium text-gray-700">Apellido Materno </label>
+        <label htmlFor="SecondLastName" >Apellido Materno </label>
         <input
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           type="text"
-          placeholder="Type Second Last Name"
+          placeholder="Apellido Materno"
           value={SecondLastName}
           onChange={(e) => setSecondLastName(e.target.value)}
         />
-        <label htmlFor="Rut" className="block text-sm font-medium text-gray-700">Rut </label>
+        <label htmlFor="Rut">Rut </label>
         <input
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           type="text"
-          placeholder="Type to rut"
+          placeholder="Rut"
           value={Rut}
           {...register('Rut', { required: true })}
           onChange={(e) => setRut(e.target.value)}
         />
         {errors.Rut && <p>Se Necesita Un Rut</p>}
-        <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700">Codigo Postal </label>
+        <label htmlFor="zipCode">Codigo Postal </label>
         <input
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           type="text"
-          placeholder="Type to zip code"
+          placeholder="Codigo Postal"
           value={zipCode}
           {...register('zipCode', { required: true })}
           onChange={(e) => setZipCode(e.target.value)}
         />
         {errors.zipCode && <p>Se Necesita Un Codigo Postal</p>}
-        <label htmlFor="state" className="block text-sm font-medium text-gray-700">Region </label>
+        <label htmlFor="state" >Region </label>
         <input
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           type="text"
-          placeholder="Select Your State"
+          placeholder="Region"
           value={state}
           {...register('state', { required: true })}
           onChange={(e) => setState(e.target.value)}
         />
         {errors.state && <p>Se Necesita Una Region</p>}
-        <label htmlFor="county" className="block text-sm font-medium text-gray-700">Comuna </label>
+        <label htmlFor="county" >Comuna</label>
         <input
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           type="text"
-          placerholder="Select Your County"
+          placerholder="Comuna"
           value={county}
           {...register('county', { required: true })}
           onChange={(e) => setCounty(e.target.value)}
         />
-        {errors.county && <p>Se Necesita Una Comuna</p>}
-
-        <button type="submit"  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">enviar</button>
+        {errors.county && <p>Se Necesita Una Comuna</p> }
+        <button type="submit" >enviar</button>
       </form>
     </div>
   );

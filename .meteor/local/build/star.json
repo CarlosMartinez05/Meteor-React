@@ -15,5 +15,6 @@
   ],
   "meteorRelease": "METEOR@2.8.1",
   "nodeVersion": "14.21.1",
-  "npmVersion": "6.14.17"
+  "npmVersion": "6.14.17",
+  "gitCommitHash": "5422d63c2506026749063d5d8e6f126c705d02d9"
 }
