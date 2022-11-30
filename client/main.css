@@ -4,6 +4,7 @@
 
 body{
    background-color: grey;
+   margin: 0;
 }
 
 .Footer{
@@ -26,9 +27,11 @@ body{
    text-align: center;
 }
 
-input{
-   border: 1px solid blue;
-   display: flex;
+   input{
+      border: 1px solid blue;
+      display: flex;
+      padding-right: 1rem;
+   margin: 1rem;
 }
 
    button {
@@ -37,8 +40,18 @@ input{
       border: 1px solid blue;
       color: rgb(255, 255, 255);
       box-shadow: 0 3px 3px rgba(0, 13, 192, 0.4);
-      padding: 5px;
       cursor: pointer;
       display: flex;
+      padding-right: 1rem;
+      margin: 1rem;
+    }
+
+   label{
+      margin: 1rem;
+      padding-right: 1rem;
     }
     
+   h1{
+   margin: 1rem;
+   padding-right: 1rem;
+}

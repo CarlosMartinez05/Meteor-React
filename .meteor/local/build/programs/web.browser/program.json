@@ -61,13 +61,13 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/modules.js?hash=8c490221dd20f9354e39fca82e0f960033acdf47",
+      "url": "/packages/modules.js?hash=d066db4242fb4af2ec6f7990251eb992c89d2594",
       "replaceable": false,
       "sourceMap": "packages/modules.js.map",
-      "sourceMapUrl": "/packages/8c490221dd20f9354e39fca82e0f960033acdf47.map",
-      "size": 1289696,
-      "hash": "8c490221dd20f9354e39fca82e0f960033acdf47",
-      "sri": "o4jkATkYg0V4aPSN3rZeQD6oEUpHPHKFmA8soaMfjDYv5ACphI+HWJajBVksg6vRfylbdmXxhnkbM2XSQeTCyA=="
+      "sourceMapUrl": "/packages/d066db4242fb4af2ec6f7990251eb992c89d2594.map",
+      "size": 1294924,
+      "hash": "d066db4242fb4af2ec6f7990251eb992c89d2594",
+      "sri": "3RH+taQCO9eTvp263JGXTECre8Ut0p2VKWf4Qwx94m0EsG+xD4K6pDLcrgWkYMiqaGb9QPsCzCo8jzl+dr27CQ=="
     },
     {
       "path": "packages/modern-browsers.js",
@@ -679,25 +679,25 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/app.js?hash=5023218650de5cb8362b9063c66931fbb552a35b",
+      "url": "/app/app.js?hash=2a4314f0138fed27707e67896912efb1dc862d4b",
       "replaceable": true,
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/app/5023218650de5cb8362b9063c66931fbb552a35b.map",
-      "size": 15690,
-      "hash": "5023218650de5cb8362b9063c66931fbb552a35b",
-      "sri": "gI/v/loZT36+7OU+vQg33p6/PMGRSOB/hqdvjVIuBBNVUqTv9XpBthZuL4CMLduyX7+L4va5Mcgw1Qd9W8IgkA=="
+      "sourceMapUrl": "/app/2a4314f0138fed27707e67896912efb1dc862d4b.map",
+      "size": 14670,
+      "hash": "2a4314f0138fed27707e67896912efb1dc862d4b",
+      "sri": "89aCg55Z1btO2UWyM2KxoeWnyLI5i3pxBLVNXRTJyu35zyy4SWQGaajfo3T2athZd8J/80SshCe+el7kHfzstQ=="
     },
     {
       "path": "merged-stylesheets.css",
       "where": "client",
       "type": "css",
       "cacheable": true,
-      "url": "/merged-stylesheets.css?hash=1a159f275da89f3162d088fe8ec483968856110a",
+      "url": "/merged-stylesheets.css?hash=7b698367828d8887c8996b2ab07531880a1e3086",
       "sourceMap": "merged-stylesheets.css.map",
-      "sourceMapUrl": "/1a159f275da89f3162d088fe8ec483968856110a.map",
-      "size": 10007,
-      "hash": "1a159f275da89f3162d088fe8ec483968856110a",
-      "sri": "Dp8Se4MmeV5tXaYm+5YYKAZ5/lCNUL/ZdNGvMKzKs4IEy6qVcu1eN7o6/goVCeCHCh2ty1O7VQc9Uv/zoQF3JQ=="
+      "sourceMapUrl": "/7b698367828d8887c8996b2ab07531880a1e3086.map",
+      "size": 10220,
+      "hash": "7b698367828d8887c8996b2ab07531880a1e3086",
+      "sri": "IXFwZiX6n3Hqy3h8cVwmSL6WDaHkO2h337I7z06qE17ewPWGasQMnaa/Y01GBXaonHtl5sHC3y7xm2ra7ckutw=="
     },
     {
       "path": "packages/promise/promise.d.ts",
@@ -732,5 +732,5 @@
       "hash": "33a76f2b4c30f6e44559d748578e1b43c573b579"
     }
   ],
-  "hmrVersion": 1669763098284
+  "hmrVersion": 1669823760698
 }

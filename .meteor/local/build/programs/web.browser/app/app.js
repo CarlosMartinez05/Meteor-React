@@ -180,6 +180,17 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
     }
 
   }, 2);
+  let validateRut, formatRut;
+  module1.link("rutlib", {
+    validateRut(v) {
+      validateRut = v;
+    },
+
+    formatRut(v) {
+      formatRut = v;
+    }
+
+  }, 3);
 
   ___INIT_METEOR_FAST_REFRESH(module);
 
@@ -189,13 +200,6 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
     _s(); //SetState and Const for parameters
 
 
-    const [name, setName] = useState("");
-    const [FirstLastName, setFirstLastName] = useState("");
-    const [SecondLastName, setSecondLastName] = useState("");
-    const [Rut, setRut] = useState("");
-    const [zipCode, setZipCode] = useState("");
-    const [state, setState] = useState("");
-    const [county, setCounty] = useState("");
     const {
       register,
       handleSubmit,
@@ -204,25 +208,9 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
       }
     } = useForm();
 
-    const submit = async data => {
-      await data.preventDefault;
-      if (!Rut) return;
-      PatientCollection.insert({
-        name,
-        FirstLastName,
-        SecondLastName,
-        Rut,
-        zipCode,
-        state,
-        county
-      });
-      setName("");
-      setFirstLastName("");
-      setSecondLastName("");
-      setRut("");
-      setZipCode("");
-      setState("");
-      setCounty("");
+    const submit = data => {
+      console.log(data);
+      PatientCollection.insert(data);
     };
 
     return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("form", {
@@ -232,75 +220,56 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
     }, "First name "), /*#__PURE__*/React.createElement("input", _extends({
       autoComplete: "name",
       type: "text",
-      placeholder: "Nombre",
-      value: name
+      placeholder: "Nombre"
     }, register('name', {
       required: true
-    }), {
-      onChange: e => setName(e.target.value)
-    })), errors.name && /*#__PURE__*/React.createElement("p", null, "Se necesita Un Nombre"), /*#__PURE__*/React.createElement("label", {
+    }))), errors.name && /*#__PURE__*/React.createElement("p", null, "Se necesita Un Nombre"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "FirstLastName"
     }, "Apellido Materno "), /*#__PURE__*/React.createElement("input", _extends({
       type: "text",
-      placeholder: "Apellido Paterno",
-      value: FirstLastName
+      placeholder: "Apellido Paterno"
     }, register('FirstLastName', {
       required: true
-    }), {
-      onChange: e => setFirstLastName(e.target.value)
-    })), errors.FirstLastName && /*#__PURE__*/React.createElement("p", null, "Necesitas Un Apellido Paterno"), /*#__PURE__*/React.createElement("label", {
+    }))), errors.FirstLastName && /*#__PURE__*/React.createElement("p", null, "Necesitas Un Apellido Paterno"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "SecondLastName"
     }, "Apellido Materno "), /*#__PURE__*/React.createElement("input", {
       type: "text",
-      placeholder: "Apellido Materno",
-      value: SecondLastName,
-      onChange: e => setSecondLastName(e.target.value)
+      placeholder: "Apellido Materno"
     }), /*#__PURE__*/React.createElement("label", {
       htmlFor: "Rut"
     }, "Rut "), /*#__PURE__*/React.createElement("input", _extends({
       type: "text",
-      placeholder: "Rut",
-      value: Rut
+      placeholder: "Rut"
     }, register('Rut', {
-      required: true
-    }), {
-      onChange: e => setRut(e.target.value)
-    })), errors.Rut && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Rut"), /*#__PURE__*/React.createElement("label", {
+      required: true,
+      validate: validateRut
+    }))), errors.Rut && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Rut"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "zipCode"
     }, "Codigo Postal "), /*#__PURE__*/React.createElement("input", _extends({
       type: "text",
-      placeholder: "Codigo Postal",
-      value: zipCode
+      placeholder: "Codigo Postal"
     }, register('zipCode', {
       required: true
-    }), {
-      onChange: e => setZipCode(e.target.value)
-    })), errors.zipCode && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Codigo Postal"), /*#__PURE__*/React.createElement("label", {
+    }))), errors.zipCode && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Codigo Postal"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "state"
     }, "Region "), /*#__PURE__*/React.createElement("input", _extends({
       type: "text",
-      placeholder: "Region",
-      value: state
+      placeholder: "Region"
     }, register('state', {
       required: true
-    }), {
-      onChange: e => setState(e.target.value)
-    })), errors.state && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Region"), /*#__PURE__*/React.createElement("label", {
+    }))), errors.state && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Region"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "county"
     }, "Comuna"), /*#__PURE__*/React.createElement("input", _extends({
       type: "text",
-      placerholder: "Comuna",
-      value: county
+      placerholder: "Comuna"
     }, register('county', {
       required: true
-    }), {
-      onChange: e => setCounty(e.target.value)
-    })), errors.county && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Comuna"), /*#__PURE__*/React.createElement("button", {
+    }))), errors.county && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Comuna"), /*#__PURE__*/React.createElement("button", {
       type: "submit"
     }, "enviar")));
   };
 
-  _s(PatientForm, "YESj40tedrML8FoRZK2Nr5RbkwE=", false, function () {
+  _s(PatientForm, "HLC1IFclXfL/K+q6lxeDS/Po7Wk=", false, function () {
     return [useForm];
   });
 

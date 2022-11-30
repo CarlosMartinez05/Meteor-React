@@ -144,29 +144,13 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
 //////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                     //
 !function (module1) {
-  var _regeneratorRuntime;
-
-  module1.link("@babel/runtime/regenerator", {
-    default: function (v) {
-      _regeneratorRuntime = v;
-    }
-  }, 0);
-
   var _extends;
 
   module1.link("@babel/runtime/helpers/extends", {
     default: function (v) {
       _extends = v;
     }
-  }, 1);
-
-  var _slicedToArray;
-
-  module1.link("@babel/runtime/helpers/slicedToArray", {
-    default: function (v) {
-      _slicedToArray = v;
-    }
-  }, 2);
+  }, 0);
   var React, useState;
   module1.link("react", {
     "default": function (v) {
@@ -188,6 +172,15 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
       useForm = v;
     }
   }, 2);
+  var validateRut, formatRut;
+  module1.link("rutlib", {
+    validateRut: function (v) {
+      validateRut = v;
+    },
+    formatRut: function (v) {
+      formatRut = v;
+    }
+  }, 3);
 
   ___INIT_METEOR_FAST_REFRESH(module);
 
@@ -197,95 +190,15 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
     _s(); //SetState and Const for parameters
 
 
-    var _useState = useState(""),
-        _useState2 = _slicedToArray(_useState, 2),
-        name = _useState2[0],
-        setName = _useState2[1];
-
-    var _useState3 = useState(""),
-        _useState4 = _slicedToArray(_useState3, 2),
-        FirstLastName = _useState4[0],
-        setFirstLastName = _useState4[1];
-
-    var _useState5 = useState(""),
-        _useState6 = _slicedToArray(_useState5, 2),
-        SecondLastName = _useState6[0],
-        setSecondLastName = _useState6[1];
-
-    var _useState7 = useState(""),
-        _useState8 = _slicedToArray(_useState7, 2),
-        Rut = _useState8[0],
-        setRut = _useState8[1];
-
-    var _useState9 = useState(""),
-        _useState10 = _slicedToArray(_useState9, 2),
-        zipCode = _useState10[0],
-        setZipCode = _useState10[1];
-
-    var _useState11 = useState(""),
-        _useState12 = _slicedToArray(_useState11, 2),
-        state = _useState12[0],
-        setState = _useState12[1];
-
-    var _useState13 = useState(""),
-        _useState14 = _slicedToArray(_useState13, 2),
-        county = _useState14[0],
-        setCounty = _useState14[1];
-
     var _useForm = useForm(),
         register = _useForm.register,
         handleSubmit = _useForm.handleSubmit,
         errors = _useForm.formState.errors;
 
-    var submit = function () {
-      function _callee(data) {
-        return _regeneratorRuntime.async(function () {
-          function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  _context.next = 2;
-                  return _regeneratorRuntime.awrap(data.preventDefault);
-
-                case 2:
-                  if (Rut) {
-                    _context.next = 4;
-                    break;
-                  }
-
-                  return _context.abrupt("return");
-
-                case 4:
-                  PatientCollection.insert({
-                    name: name,
-                    FirstLastName: FirstLastName,
-                    SecondLastName: SecondLastName,
-                    Rut: Rut,
-                    zipCode: zipCode,
-                    state: state,
-                    county: county
-                  });
-                  setName("");
-                  setFirstLastName("");
-                  setSecondLastName("");
-                  setRut("");
-                  setZipCode("");
-                  setState("");
-                  setCounty("");
-
-                case 12:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }
-
-          return _callee$;
-        }(), null, null, null, Promise);
-      }
-
-      return _callee;
-    }();
+    var submit = function (data) {
+      console.log(data);
+      PatientCollection.insert(data);
+    };
 
     return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("form", {
       onSubmit: handleSubmit(submit)
@@ -294,89 +207,56 @@ var require = meteorInstall({"imports":{"api":{"Collections":{"PatientCollection
     }, "First name "), /*#__PURE__*/React.createElement("input", _extends({
       autoComplete: "name",
       type: "text",
-      placeholder: "Nombre",
-      value: name
+      placeholder: "Nombre"
     }, register('name', {
       required: true
-    }), {
-      onChange: function (e) {
-        return setName(e.target.value);
-      }
-    })), errors.name && /*#__PURE__*/React.createElement("p", null, "Se necesita Un Nombre"), /*#__PURE__*/React.createElement("label", {
+    }))), errors.name && /*#__PURE__*/React.createElement("p", null, "Se necesita Un Nombre"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "FirstLastName"
     }, "Apellido Materno "), /*#__PURE__*/React.createElement("input", _extends({
       type: "text",
-      placeholder: "Apellido Paterno",
-      value: FirstLastName
+      placeholder: "Apellido Paterno"
     }, register('FirstLastName', {
       required: true
-    }), {
-      onChange: function (e) {
-        return setFirstLastName(e.target.value);
-      }
-    })), errors.FirstLastName && /*#__PURE__*/React.createElement("p", null, "Necesitas Un Apellido Paterno"), /*#__PURE__*/React.createElement("label", {
+    }))), errors.FirstLastName && /*#__PURE__*/React.createElement("p", null, "Necesitas Un Apellido Paterno"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "SecondLastName"
     }, "Apellido Materno "), /*#__PURE__*/React.createElement("input", {
       type: "text",
-      placeholder: "Apellido Materno",
-      value: SecondLastName,
-      onChange: function (e) {
-        return setSecondLastName(e.target.value);
-      }
+      placeholder: "Apellido Materno"
     }), /*#__PURE__*/React.createElement("label", {
       htmlFor: "Rut"
     }, "Rut "), /*#__PURE__*/React.createElement("input", _extends({
       type: "text",
-      placeholder: "Rut",
-      value: Rut
+      placeholder: "Rut"
     }, register('Rut', {
-      required: true
-    }), {
-      onChange: function (e) {
-        return setRut(e.target.value);
-      }
-    })), errors.Rut && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Rut"), /*#__PURE__*/React.createElement("label", {
+      required: true,
+      validate: validateRut
+    }))), errors.Rut && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Rut"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "zipCode"
     }, "Codigo Postal "), /*#__PURE__*/React.createElement("input", _extends({
       type: "text",
-      placeholder: "Codigo Postal",
-      value: zipCode
+      placeholder: "Codigo Postal"
     }, register('zipCode', {
       required: true
-    }), {
-      onChange: function (e) {
-        return setZipCode(e.target.value);
-      }
-    })), errors.zipCode && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Codigo Postal"), /*#__PURE__*/React.createElement("label", {
+    }))), errors.zipCode && /*#__PURE__*/React.createElement("p", null, "Se Necesita Un Codigo Postal"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "state"
     }, "Region "), /*#__PURE__*/React.createElement("input", _extends({
       type: "text",
-      placeholder: "Region",
-      value: state
+      placeholder: "Region"
     }, register('state', {
       required: true
-    }), {
-      onChange: function (e) {
-        return setState(e.target.value);
-      }
-    })), errors.state && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Region"), /*#__PURE__*/React.createElement("label", {
+    }))), errors.state && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Region"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "county"
     }, "Comuna"), /*#__PURE__*/React.createElement("input", _extends({
       type: "text",
-      placerholder: "Comuna",
-      value: county
+      placerholder: "Comuna"
     }, register('county', {
       required: true
-    }), {
-      onChange: function (e) {
-        return setCounty(e.target.value);
-      }
-    })), errors.county && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Comuna"), /*#__PURE__*/React.createElement("button", {
+    }))), errors.county && /*#__PURE__*/React.createElement("p", null, "Se Necesita Una Comuna"), /*#__PURE__*/React.createElement("button", {
       type: "submit"
     }, "enviar")));
   };
 
-  _s(PatientForm, "YESj40tedrML8FoRZK2Nr5RbkwE=", false, function () {
+  _s(PatientForm, "HLC1IFclXfL/K+q6lxeDS/Po7Wk=", false, function () {
     return [useForm];
   });
 
